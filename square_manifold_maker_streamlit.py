@@ -219,15 +219,15 @@ if image1_file and image2_file:
             mime="image/png"
         )
 
-zip_buffer = io.BytesIO()
-with zipfile.ZipFile(zip_buffer, "w") as zipf:
-    for i, (layout_name, layout) in enumerate(layouts.items()):
+    zip_buffer = io.BytesIO()
+    with zipfile.ZipFile(zip_buffer, "w") as zipf:
+        for i, (layout_name, layout) in enumerate(layouts.items()):
                 grid_image = create_grid(image1_parts, image2_parts, other_image, layout)
                 img_bytes = io.BytesIO()
                 grid_image.save(img_bytes, format="PNG")
                 zipf.writestr(f"{layout_name}.png", img_bytes.getvalue())
 
-st.download_button(
+    st.download_button(
             label="Download All Layouts as Zip",
             data=zip_buffer.getvalue(),
             file_name="layouts.zip",
