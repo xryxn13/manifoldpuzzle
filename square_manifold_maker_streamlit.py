@@ -220,8 +220,8 @@ if image1_file and image2_file:
         )
 
 zip_buffer = io.BytesIO()
-    with zipfile.ZipFile(zip_buffer, "w") as zipf:
-            for i, (layout_name, layout) in enumerate(layouts.items()):
+with zipfile.ZipFile(zip_buffer, "w") as zipf:
+    for i, (layout_name, layout) in enumerate(layouts.items()):
                 grid_image = create_grid(image1_parts, image2_parts, other_image, layout)
                 img_bytes = io.BytesIO()
                 grid_image.save(img_bytes, format="PNG")
