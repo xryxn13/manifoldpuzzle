@@ -131,15 +131,15 @@ layouts = {
     ],
 
     "Layout 7": [
-        ["o", "o", "o", "o", "o", "o", "o", "1-15-270", "o"],
-        ["o", "o", "o", "o", "o", "o", "o", "1-16-270", "1-12-270"],
-        ["o", "1-14-180", "1-13-180", "1-1", "1-2", "1-3", "1-4", "o", "o"],
+        ["o", "o", "o", "o", "o", "o", "o", "2-15-270", "o"],
+        ["o", "o", "o", "o", "o", "o", "o", "2-16-270", "2-12-270"],
+        ["o", "2-14-180", "2-13-180", "1-1", "1-2", "1-3", "1-4", "o", "o"],
         ["o", "o", "o", "1-5", "1-6", "1-7", "1-8", "o", "o"],
         ["o", "o", "o", "1-9", "1-10", "1-11", "1-12", "o", "o"],
         ["o", "o", "o", "1-13", "1-14", "1-15", "1-16", "o", "o"],
-        ["1-9-270", "1-5-270", "1-1-270", "o", "o", "o", "o", "1-4-90", "1-8-90"],
-        ["1-10-270", "1-6-270", "1-2-270", "o", "o", "o", "o", "o", "o"],
-        ["1-11-270", "1-7-270", "1-3-270", "o", "o", "o", "o", "o", "o"]
+        ["2-9-270", "2-5-270", "2-1-270", "o", "o", "o", "o", "2-4-90", "2-8-90"],
+        ["2-10-270", "2-6-270", "2-2-270", "o", "o", "o", "o", "o", "o"],
+        ["2-11-270", "2-7-270", "2-3-270", "o", "o", "o", "o", "o", "o"]
     ],
 
     "Layout 8": [
@@ -216,4 +216,19 @@ if image1_file and image2_file:
             data=img_byte_arr,
             file_name=f"{layout_name}_grid_image.png",
             mime="image/png"
+        )
+
+zip_buffer = io.BytesIO()
+with zipfile.ZipFile(zip_buffer, "w") as zipf:
+        for i, (layout_name, layout) in enumerate(layouts.items()):
+                grid_image = create_grid(image1_parts, image2_parts, other_image, layout)
+                img_bytes = io.BytesIO()
+                grid_image.save(img_bytes, format="PNG")
+                zipf.writestr(f"{layout_name}.png", img_bytes.getvalue())
+
+st.download_button(
+            label="Download All Layouts as Zip",
+            data=zip_buffer.getvalue(),
+            file_name="layouts.zip",
+            mime="application/zip"
         )
