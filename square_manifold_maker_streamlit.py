@@ -59,7 +59,7 @@ def create_grid(image1_parts, image2_parts, other_images, layout, grid_size=9):
     return grid_image
 
 # Define multiple layouts as placeholders
-layouts = {
+layouts01 = {
     "Layout 1": [
         ["o", "o", "1-9", "1-10", "1-11", "1-12", "o", "o", "o"],
         ["", "", "1-13", "1-14", "1-15", "1-16", "o", "o", "o"],
@@ -72,18 +72,6 @@ layouts = {
         ["o", "o", "o", "o", "o", "o", "o", "o", "o"]
     ],
     "Layout 2": [
-        ["o", "1-5", "o", "1-6", "o", "1-7", "o", "o", "o"],
-        ["o", "1-9", "o", "1-10", "o", "1-11", "o", "o", "1-12"],
-        ["o", "1-13", "o", "1-14", "o", "1-15", "o", "o", "1-16"],
-        ["o", "2-1", "o", "2-2", "o", "2-3", "o", "o", "2-4"],
-        ["o", "2-5", "o", "2-6", "o", "2-7", "o", "o", "2-8"],
-        ["o", "2-9", "o", "2-10", "o", "2-11", "o", "o", "2-12"],
-        ["o", "2-13", "o", "2-14", "o", "2-15", "o", "o", "2-16"],
-        ["o", "1-1", "o", "1-2", "o", "1-3", "o", "o", "1-4"],
-        ["o", "o", "o", "o", "o", "o", "o", "o", "1-8"]
-    ],
-
-    "Layout 3": [
         ["o", "o", "o", "o", "o", "o", "o", "o", "o"],
         ["1-9", "o", "o", "o", "1-10", "1-11", "o", "o", "1-12"],
         ["1-13", "o", "o", "o", "1-14", "1-15", "o", "o", "1-16"],
@@ -94,20 +82,7 @@ layouts = {
         ["1-1", "o", "o", "o", "1-2", "1-3", "o", "o", "1-4"],
         ["1-5", "o", "o", "o", "1-6", "1-7", "o", "o", "1-8"]
     ],
-
-    "Layout 4": [
-        ["2-1", "2-2", "2-3", "2-4", "o", "o", "o", "o", "1-13-270"],
-        ["2-5", "2-6", "2-7", "2-8", "o", "o", "o", "o", "1-14-270"],
-        ["2-9", "2-10", "2-11", "2-12", "o", "o", "o", "o", "1-15-270"],
-        ["2-13", "2-14", "2-15", "2-16", "o", "o", "o", "o", "1-16-270"],
-        ["o", "o", "o", "o", "1-4-90", "1-8-90", "1-12-90", "o", "o"],
-        ["o", "o", "o", "o", "1-3-90", "1-7-90", "1-11-90", "o", "o"],
-        ["o", "o", "o", "o", "1-2-90", "1-6-90", "1-10-90", "o", "o"],
-        ["o", "o", "o", "o", "o", "o", "o", "o", "o"],
-        ["o", "1-9-270", "1-5-270", "1-1-270", "o", "o", "o", "o", "o"]
-    ],
-
-    "Layout 5": [
+    "Layout 3": [
         ["o", "o", "o", "1-9", "1-10", "1-11", "1-12", "o", "o"],
         ["o", "o", "o", "1-13", "1-14", "1-15", "1-16", "o", "o"],
         ["o", "o", "o", "2-1", "2-2", "2-3", "2-4", "o", "o"],
@@ -118,43 +93,7 @@ layouts = {
         ["o", "o", "o", "1-5", "1-6", "1-7", "1-8", "o", "o"],
         ["o", "o", "o", "o", "o", "o", "o", "o", "o"]
     ],
-
-    "Layout 6": [
-        ["o", "1-1-90", "1-5-90", "1-9-90", "1-13-90", "o", "o", "o", "o"],
-        ["2-13-180", "o", "o", "o", "o", "o", "o", "o", "o"],
-        ["2-9-180", "o", "o", "o", "o", "1-14-270", "1-10-270", "1-6-270", "1-2-270"],
-        ["2-5-180", "o", "o", "o", "o", "1-15-270", "1-11-270", "1-7-270", "1-3-270"],
-        ["2-1-180", "o", "o", "o", "o", "1-16-270", "1-12-270", "1-8-270", "1-4-270"],
-        ["o", "o", "2-2", "2-3", "2-4", "o", "o", "o", "o"],
-        ["o", "o", "2-6", "2-7", "2-8", "o", "o", "o", "o"],
-        ["o", "o", "2-10", "2-11", "2-12", "o", "o", "o", "o"],
-        ["o", "o", "2-14", "2-15", "2-16", "o", "o", "o", "o"]
-    ],
-
-    "Layout 7": [
-        ["o", "o", "o", "o", "o", "o", "o", "2-15-270", "o"],
-        ["o", "o", "o", "o", "o", "o", "o", "2-16-270", "2-12-270"],
-        ["o", "2-14-180", "2-13-180", "1-1", "1-2", "1-3", "1-4", "o", "o"],
-        ["o", "o", "o", "1-5", "1-6", "1-7", "1-8", "o", "o"],
-        ["o", "o", "o", "1-9", "1-10", "1-11", "1-12", "o", "o"],
-        ["o", "o", "o", "1-13", "1-14", "1-15", "1-16", "o", "o"],
-        ["2-9-270", "2-5-270", "2-1-270", "o", "o", "o", "o", "2-4-90", "2-8-90"],
-        ["2-10-270", "2-6-270", "2-2-270", "o", "o", "o", "o", "o", "o"],
-        ["2-11-270", "2-7-270", "2-3-270", "o", "o", "o", "o", "o", "o"]
-    ],
-
-    "Layout 8": [
-        ["o", "o", "o", "o", "o", "o", "o", "2-15-270", "2-11-270"],
-        ["2-10-90", "2-14-90", "o", "o", "o", "o", "o", "2-16-270", "2-12-270"],
-        ["2-9-90", "2-13-90", "o", "o", "o", "o", "o", "o", "o"],
-        ["o", "o", "1-1", "1-2", "1-3", "1-4", "o", "o", "o"],
-        ["o", "o", "1-5", "1-6", "1-7", "1-8", "o", "o", "o"],
-        ["o", "o", "1-9", "1-10", "1-11", "1-12", "o", "o", "o"],
-        ["o", "o", "1-13", "1-14", "1-15", "1-16", "o", "o", "o"],
-        ["2-5-270", "2-1-270", "o", "o", "o", "o", "2-4-90", "2-8-90", "o"],
-        ["2-6-270", "2-2-270", "o", "o", "o", "o", "2-3-90", "2-7-90", "o"]
-    ],
-    "Layout 9": [
+    "Layout 4": [
         ["o", "2-15-180", "2-14-180", "2-13-180", "1-1", "1-2", "1-3", "1-4", "2-16-180"],
         ["o", "2-11-180", "2-10-180", "2-9-180", "1-5", "1-6", "1-7", "1-8", "2-12-180"],
         ["o", "o", "o", "o", "1-9", "1-10", "1-11", "1-12", "o"],
@@ -165,8 +104,31 @@ layouts = {
         ["o", "o", "o", "o", "o", "o", "o", "o", "o"],
         ["o", "o", "o", "o", "o", "o", "o", "o", "o"]
     ],
-
-    "Layout 10": [
+}
+layouts02 = {
+    "Layout 1": [
+        ["o", "1-5", "o", "1-6", "o", "1-7", "o", "o", "o"],
+        ["o", "1-9", "o", "1-10", "o", "1-11", "o", "o", "1-12"],
+        ["o", "1-13", "o", "1-14", "o", "1-15", "o", "o", "1-16"],
+        ["o", "2-1", "o", "2-2", "o", "2-3", "o", "o", "2-4"],
+        ["o", "2-5", "o", "2-6", "o", "2-7", "o", "o", "2-8"],
+        ["o", "2-9", "o", "2-10", "o", "2-11", "o", "o", "2-12"],
+        ["o", "2-13", "o", "2-14", "o", "2-15", "o", "o", "2-16"],
+        ["o", "1-1", "o", "1-2", "o", "1-3", "o", "o", "1-4"],
+        ["o", "o", "o", "o", "o", "o", "o", "o", "1-8"]
+    ],
+    "Layout 2": [
+        ["2-1", "2-2", "2-3", "2-4", "o", "o", "o", "o", "1-13-270"],
+        ["2-5", "2-6", "2-7", "2-8", "o", "o", "o", "o", "1-14-270"],
+        ["2-9", "2-10", "2-11", "2-12", "o", "o", "o", "o", "1-15-270"],
+        ["2-13", "2-14", "2-15", "2-16", "o", "o", "o", "o", "1-16-270"],
+        ["o", "o", "o", "o", "1-4-90", "1-8-90", "1-12-90", "o", "o"],
+        ["o", "o", "o", "o", "1-3-90", "1-7-90", "1-11-90", "o", "o"],
+        ["o", "o", "o", "o", "1-2-90", "1-6-90", "1-10-90", "o", "o"],
+        ["o", "o", "o", "o", "o", "o", "o", "o", "o"],
+        ["o", "1-9-270", "1-5-270", "1-1-270", "o", "o", "o", "o", "o"]
+    ],
+    "Layout 3": [
         ["o", "o", "2-9", "2-10", "2-11", "2-12", "o", "o", "o"],
         ["o", "o", "o", "o", "o", "o", "o", "o", "o"],
         ["o", "o", "2-13", "2-14", "2-15", "2-16", "o", "o", "o"],
@@ -178,9 +140,46 @@ layouts = {
         ["o", "o", "o", "o", "o", "o", "2-3-90", "2-7-90", "o"]
     ]
 }
+layouts03 = {
+    "Layout 1": [
+        ["o", "1-1-90", "1-5-90", "1-9-90", "1-13-90", "o", "o", "o", "o"],
+        ["2-13-180", "o", "o", "o", "o", "o", "o", "o", "o"],
+        ["2-9-180", "o", "o", "o", "o", "1-14-270", "1-10-270", "1-6-270", "1-2-270"],
+        ["2-5-180", "o", "o", "o", "o", "1-15-270", "1-11-270", "1-7-270", "1-3-270"],
+        ["2-1-180", "o", "o", "o", "o", "1-16-270", "1-12-270", "1-8-270", "1-4-270"],
+        ["o", "o", "2-2", "2-3", "2-4", "o", "o", "o", "o"],
+        ["o", "o", "2-6", "2-7", "2-8", "o", "o", "o", "o"],
+        ["o", "o", "2-10", "2-11", "2-12", "o", "o", "o", "o"],
+        ["o", "o", "2-14", "2-15", "2-16", "o", "o", "o", "o"]
+    ],
+
+    "Layout 2": [
+        ["o", "o", "o", "o", "o", "o", "o", "2-15-270", "o"],
+        ["o", "o", "o", "o", "o", "o", "o", "2-16-270", "2-12-270"],
+        ["o", "2-14-180", "2-13-180", "1-1", "1-2", "1-3", "1-4", "o", "o"],
+        ["o", "o", "o", "1-5", "1-6", "1-7", "1-8", "o", "o"],
+        ["o", "o", "o", "1-9", "1-10", "1-11", "1-12", "o", "o"],
+        ["o", "o", "o", "1-13", "1-14", "1-15", "1-16", "o", "o"],
+        ["2-9-270", "2-5-270", "2-1-270", "o", "o", "o", "o", "2-4-90", "2-8-90"],
+        ["2-10-270", "2-6-270", "2-2-270", "o", "o", "o", "o", "o", "o"],
+        ["2-11-270", "2-7-270", "2-3-270", "o", "o", "o", "o", "o", "o"]
+    ],
+
+    "Layout 3": [
+        ["o", "o", "o", "o", "o", "o", "o", "2-15-270", "2-11-270"],
+        ["2-10-90", "2-14-90", "o", "o", "o", "o", "o", "2-16-270", "2-12-270"],
+        ["2-9-90", "2-13-90", "o", "o", "o", "o", "o", "o", "o"],
+        ["o", "o", "1-1", "1-2", "1-3", "1-4", "o", "o", "o"],
+        ["o", "o", "1-5", "1-6", "1-7", "1-8", "o", "o", "o"],
+        ["o", "o", "1-9", "1-10", "1-11", "1-12", "o", "o", "o"],
+        ["o", "o", "1-13", "1-14", "1-15", "1-16", "o", "o", "o"],
+        ["2-5-270", "2-1-270", "o", "o", "o", "o", "2-4-90", "2-8-90", "o"],
+        ["2-6-270", "2-2-270", "o", "o", "o", "o", "2-3-90", "2-7-90", "o"]
+    ],
+}
 
 # Streamlit UI
-st.title('ManiFold Maker By CCL')
+st.title('Generate Multiple Layout Images')
 
 # Upload images
 image1_file = st.file_uploader("Upload Image 1", type=["png", "jpg", "jpeg"])
@@ -190,46 +189,77 @@ if image1_file and image2_file:
     # Load and process the uploaded images
     image1_parts = split_image(image1_file)
     image2_parts = split_image(image2_file)
+    option = st.selectbox("Select Level", [1, 2, 3])
     
     # Load the "other image" from the local folder (adjust the folder path as needed)
     other_image_path = "other_image1.png"  # Adjust this path to your folder
     other_image = Image.open(other_image_path)
     other_image = other_image.resize((125, 125))  # Resize the other image to 125x125
+    if option == 1:
+        for layout_name, layout in layouts01.items():
+            st.subheader(f"{layout_name}")
 
-    # Iterate over all layouts and create a grid image for each
-    for layout_name, layout in layouts.items():
-        st.subheader(f"{layout_name}")
+            # Generate the grid image based on the layout
+            final_image = create_grid(image1_parts, image2_parts, other_image, layout)
 
-        # Generate the grid image based on the layout
-        final_image = create_grid(image1_parts, image2_parts, other_image, layout)
+            # Display the final image
+            st.image(final_image, caption=f"{layout_name} Grid Image", use_container_width=True)
 
-        # Display the final image
-        st.image(final_image, caption=f"{layout_name} Grid Image", use_container_width=True)
+            # Convert the final image to PNG for download
+            img_byte_arr = io.BytesIO()
+            final_image.save(img_byte_arr, format="PNG")
+            img_byte_arr = img_byte_arr.getvalue()
 
-        # Convert the final image to PNG for download
-        img_byte_arr = io.BytesIO()
-        final_image.save(img_byte_arr, format="PNG")
-        img_byte_arr = img_byte_arr.getvalue()
+            # Allow the user to download the final image
+            st.download_button(
+                label=f"Download {layout_name} Image as PNG",
+                data=img_byte_arr,
+                file_name=f"{layout_name}_grid_image.png",
+                mime="image/png"
+            )
+    elif option == 2:
+        for layout_name, layout in layouts02.items():
+            st.subheader(f"{layout_name}")
 
-        # Allow the user to download the final image
-        st.download_button(
-            label=f"Download {layout_name} Image as PNG",
-            data=img_byte_arr,
-            file_name=f"{layout_name}_grid_image.png",
-            mime="image/png"
-        )
+            # Generate the grid image based on the layout
+            final_image = create_grid(image1_parts, image2_parts, other_image, layout)
 
-    zip_buffer = io.BytesIO()
-    with zipfile.ZipFile(zip_buffer, "w") as zipf:
-        for i, (layout_name, layout) in enumerate(layouts.items()):
-                grid_image = create_grid(image1_parts, image2_parts, other_image, layout)
-                img_bytes = io.BytesIO()
-                grid_image.save(img_bytes, format="PNG")
-                zipf.writestr(f"{layout_name}.png", img_bytes.getvalue())
+            # Display the final image
+            st.image(final_image, caption=f"{layout_name} Grid Image", use_container_width=True)
 
-    st.download_button(
-            label="Download All Layouts as Zip",
-            data=zip_buffer.getvalue(),
-            file_name="layouts.zip",
-            mime="application/zip"
-        )
+            # Convert the final image to PNG for download
+            img_byte_arr = io.BytesIO()
+            final_image.save(img_byte_arr, format="PNG")
+            img_byte_arr = img_byte_arr.getvalue()
+
+            # Allow the user to download the final image
+            st.download_button(
+                label=f"Download {layout_name} Image as PNG",
+                data=img_byte_arr,
+                file_name=f"{layout_name}_grid_image.png",
+                mime="image/png"
+            )
+
+
+    elif option == 3:
+        for layout_name, layout in layouts03.items():
+            st.subheader(f"{layout_name}")
+
+            # Generate the grid image based on the layout
+            final_image = create_grid(image1_parts, image2_parts, other_image, layout)
+
+            # Display the final image
+            st.image(final_image, caption=f"{layout_name} Grid Image", use_container_width=True)
+
+            # Convert the final image to PNG for download
+            img_byte_arr = io.BytesIO()
+            final_image.save(img_byte_arr, format="PNG")
+            img_byte_arr = img_byte_arr.getvalue()
+
+            # Allow the user to download the final image
+            st.download_button(
+                label=f"Download {layout_name} Image as PNG",
+                data=img_byte_arr,
+                file_name=f"{layout_name}_grid_image.png",
+                mime="image/png"
+            )
