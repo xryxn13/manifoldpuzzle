@@ -179,7 +179,7 @@ layouts03 = {
 }
 
 # Streamlit UI
-st.title('Generate Multiple Layout Images')
+st.title('ManiFold Maker By CCL-IITGN')
 
 # Upload images
 image1_file = st.file_uploader("Upload Image 1", type=["png", "jpg", "jpeg"])
