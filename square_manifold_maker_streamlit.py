@@ -189,13 +189,13 @@ if image1_file and image2_file:
     # Load and process the uploaded images
     image1_parts = split_image(image1_file)
     image2_parts = split_image(image2_file)
-    option = st.selectbox("Select Level", [1, 2, 3])
+    option = st.selectbox("Select Level", ['Easy','Medium','Hard'])
     
     # Load the "other image" from the local folder (adjust the folder path as needed)
     other_image_path = "other_image1.png"  # Adjust this path to your folder
     other_image = Image.open(other_image_path)
     other_image = other_image.resize((125, 125))  # Resize the other image to 125x125
-    if option == 1:
+    if option == 'Easy':
         for layout_name, layout in layouts01.items():
             st.subheader(f"{layout_name}")
 
@@ -217,7 +217,7 @@ if image1_file and image2_file:
                 file_name=f"{layout_name}_grid_image.png",
                 mime="image/png"
             )
-    elif option == 2:
+    elif option == 'Medium' :
         for layout_name, layout in layouts02.items():
             st.subheader(f"{layout_name}")
 
@@ -241,7 +241,7 @@ if image1_file and image2_file:
             )
 
 
-    elif option == 3:
+    elif option == 'Hard':
         for layout_name, layout in layouts03.items():
             st.subheader(f"{layout_name}")
 
