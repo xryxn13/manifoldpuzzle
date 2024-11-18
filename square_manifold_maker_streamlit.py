@@ -455,6 +455,24 @@ def place_images_on_base(base_image, image1_file, image2_file):
 base_image_path = 'background_image.png'
 base_image = Image.open(base_image_path)
 
+button_style = """
+<style>
+/* Style for the download button */
+.css-1offfwp.e19lei0e1 {  /* Use the correct class name from Streamlit's rendered HTML */
+    background-color: green;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+}
+.css-1offfwp.e19lei0e1:hover {
+    background-color: darkgreen;
+    color: white;
+}
+</style>
+"""
 # Streamlit UI
 st.markdown(
     """
