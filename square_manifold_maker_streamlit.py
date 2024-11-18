@@ -557,6 +557,7 @@ if image1_file and image2_file:
         # Provide a download button for the PDF
         with open(temp_pdf.name, "rb") as f:
             pdf_data = f.read()
+        st.markdown(button_style, unsafe_allow_html=True)
 
         st.download_button(
             label="Download All Layouts as PDF",
