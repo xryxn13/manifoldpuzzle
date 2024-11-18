@@ -481,6 +481,20 @@ st.markdown(
         max-width: 200px !important;
         margin: auto;
     }
+/* Style for the download button */
+    .css-1offfwp.e19lei0e1 {  /* Use the correct class name from Streamlit's rendered HTML */
+        background-color: green;
+        color: black;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+    }
+    .css-1offfwp.e19lei0e1:hover {
+        background-color: darkgreen;
+        color: white;
+    }
     </style>
     """,
     unsafe_allow_html=True,
