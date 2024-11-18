@@ -487,9 +487,9 @@ st.markdown(
 )
 
 # Title
-st.markdown('<div class="title">🎨 Manifold Puzzle Maker -by CCL-IITGN 🎮</div>', unsafe_allow_html=True)
+st.markdown('<div class="title"> Manifold Puzzle Maker -by CCL-IITGN </div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">Turn your images into exciting puzzles!</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">The goal is to fold the 18x18 grid so that one image is visible on one side of the paper, and the other image is visible on the other side. The cells marked with cross should be hidden. You can fold the paper however you want, but you cannot tear it.</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">The goal is to fold the grid so that only one image is visible on one side of the paper, and the other image is visible on the other side. The cells marked with cross should be hidden. You can fold the paper however you want, but you cannot tear it.</div>', unsafe_allow_html=True)
 
 # Level selection
 st.markdown('<div class="section">📊 Select Difficulty Level:</div>', unsafe_allow_html=True)
